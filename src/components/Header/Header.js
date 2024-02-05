@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+const Header = () => {
+  const navigate = useNavigate();
+  const navItems = [
+    {
+      name: "Home",
+      slug: "/",
+      active: true,
+    },
+  ];
 
-export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const handleScroll = () => {
@@ -18,6 +27,7 @@ export const Header = () => {
     x.push("is-sticky");
     navBar = { width: "1837px", position: "fixed", top: "0px" };
   }
+
   return (
     <div id="sticky-wrapper" className={x.join(" ")} style={{ height: "78px" }}>
       <nav className="navbar navbar-expand-lg" style={navBar}>
@@ -115,3 +125,5 @@ export const Header = () => {
     </div>
   );
 };
+
+export default Header;
