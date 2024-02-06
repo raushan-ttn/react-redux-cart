@@ -4,14 +4,13 @@ import "./assets/css/templatemo-topic-listing.css";
 import "./App.css";
 
 import { Outlet } from "react-router-dom";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import { HeaderNav, Footer } from "./components";
 
 function App() {
   return (
     <>
       <main>
-        <Header />
+        <HeaderNav />
         <Outlet />
       </main>
       <Footer />

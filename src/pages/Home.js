@@ -5,12 +5,16 @@ import {
   BrowseTopics,
   HowWork,
   FeaturedBlock,
-  GetInTouch
+  GetInTouch,
 } from "../components/HomePage";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   return (
     <>
+      <Helmet>
+        <title>Home | Topics </title>
+      </Helmet>
       <DiscoverLearn />
       <FeaturedBlock />
       <BrowseTopics />
