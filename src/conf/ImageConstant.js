@@ -11,6 +11,7 @@ import undrawTweet from "../assets/images/topics/undraw_viral_tweet_gndb.png";
 import undrawFinanc from "../assets/images/topics/undraw_Finance_re_gnv2.png";
 import undrawGraduation from "../assets/images/topics/undraw_Graduation_re_gthn.png";
 import undrawEducator from "../assets/images/topics/undraw_Educator_re_ju47.png";
+import E404 from "../assets/images/page-misc-error-light.png";
 const staticImages = {
   faqImg,
   slideImg1,
@@ -24,7 +25,8 @@ const staticImages = {
   undrawTweet,
   undrawFinanc,
   undrawGraduation,
-  undrawEducator
+  undrawEducator,
+  E404
 };
 
 export default staticImages;

@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 
 const Breadcrumb = () => {
   const location = useLocation();
-  console.log(location, "ddd");
   const { pathname } = location;
   const segments = pathname.split("/");
   const breadcrumbLinks = segments.map((segment, i) => {

@@ -12,9 +12,9 @@ import { Helmet } from "react-helmet";
 const Home = () => {
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>Home | Topics </title>
-      </Helmet>
+      </Helmet> */}
       <DiscoverLearn />
       <FeaturedBlock />
       <BrowseTopics />
