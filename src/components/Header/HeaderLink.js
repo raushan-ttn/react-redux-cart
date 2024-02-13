@@ -1,8 +1,7 @@
-import { tokenService } from "../../services";
+import { authService } from '../../services';
 
 const useHeaderLink = () => {
-  const token = tokenService.getLocalAccessToken();
-  let authStatus = (token) ? true : false;
+  const authStatus = authService.getAuthStatus();
   const navItems = [
     {
       name: 'Home',

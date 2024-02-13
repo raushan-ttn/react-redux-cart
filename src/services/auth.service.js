@@ -5,7 +5,6 @@ import { CREATE_USER, LOGIN_USER } from '../conf/config';
 //https://github.com/bezkoder/react-jwt-refresh-token/blob/master/src/services/auth.service.js
 
 class AuthService {
-    
   async login({ username, password }) {
     return api
       .post(LOGIN_USER, {
@@ -39,6 +38,11 @@ class AuthService {
 
   getCurrentUser() {
     return tokenService.getUser();
+  }
+
+  getAuthStatus() {
+    const token = tokenService.getLocalAccessToken();
+    return token ? true : false;
   }
 }
 

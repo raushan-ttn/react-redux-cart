@@ -9,10 +9,8 @@ import {
   ErrorPage,
   Login,
   Register,
-  Logout,
 } from './pages';
-
-// import { AuthLayout } from './components/admin';
+import { AuthLayout } from './components/admin';
 
 const Router = createBrowserRouter([
   {
@@ -22,27 +20,52 @@ const Router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />,
+        element: (
+          <AuthLayout authentication={false}>
+            <Home />
+          </AuthLayout>
+        ),
       },
       {
         path: '/about',
-        element: <About />,
+        element: (
+          <AuthLayout authentication={true}>
+            <About />
+          </AuthLayout>
+        ),
       },
       {
         path: '/about-client',
-        element: <Client />,
+        element: (
+          <AuthLayout authentication={true}>
+            <Client />
+          </AuthLayout>
+        ),
       },
       {
         path: '/about-service',
-        element: <Service />,
+        element: (
+          <AuthLayout authentication={true}>
+            <Service />
+          </AuthLayout>
+        ),
       },
       {
         path: '/login',
-        element: <Login />,
+        element: (
+          <AuthLayout authentication={false}>
+            {' '}
+            <Login />
+          </AuthLayout>
+        ),
       },
       {
         path: '/register',
-        element: <Register />,
+        element: (
+          <AuthLayout authentication={false}>
+            <Register />
+          </AuthLayout>
+        ),
       },
       // {
       //     path: "/post/:slug",
