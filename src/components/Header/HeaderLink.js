@@ -1,8 +1,8 @@
-import { useSelector } from 'react-redux';
+import { tokenService } from "../../services";
 
 const useHeaderLink = () => {
-  const authStatus = useSelector((state) => state.auth.status);
-
+  const token = tokenService.getLocalAccessToken();
+  let authStatus = (token) ? true : false;
   const navItems = [
     {
       name: 'Home',
@@ -64,13 +64,6 @@ const useHeaderLink = () => {
           active: authStatus,
         },
       ],
-    },
-    {
-      name: 'Login',
-      slug: '/login',
-      scroll: false,
-      active: !authStatus,
-      children: [],
     },
   ];
 

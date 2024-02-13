@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import authUserService from '../../AuthService/UserAuth';
+import { authService } from '../../services';
 import parse from 'html-react-parser';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ const RegisterForm = () => {
 
   const create = async (data) => {
     try {
-      const userData = await authUserService.createUser(data);
+      const userData = await authService.signUp(data);
       if (userData && userData.status === 201) {
         setError({ status: true, message: userData.data.message });
         setTimeout(

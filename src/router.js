@@ -12,7 +12,7 @@ import {
   Logout,
 } from './pages';
 
-import { AuthLayout } from './components/admin';
+// import { AuthLayout } from './components/admin';
 
 const Router = createBrowserRouter([
   {
@@ -26,43 +26,23 @@ const Router = createBrowserRouter([
       },
       {
         path: '/about',
-        element: (
-          <AuthLayout authentication={true}>
-            <About />
-          </AuthLayout>
-        ),
+        element: <About />,
       },
       {
         path: '/about-client',
-        element: (
-          <AuthLayout authentication={true}>
-            <Client />
-          </AuthLayout>
-        ),
+        element: <Client />,
       },
       {
         path: '/about-service',
-        element: (
-          <AuthLayout authentication={true}>
-            <Service />
-          </AuthLayout>
-        ),
+        element: <Service />,
       },
       {
         path: '/login',
-        element: (
-          <AuthLayout authentication={false}>
-            <Login />
-          </AuthLayout>
-        ),
+        element: <Login />,
       },
       {
         path: '/register',
-        element: (
-          <AuthLayout authentication={false}>
-            <Register />
-          </AuthLayout>
-        ),
+        element: <Register />,
       },
       // {
       //     path: "/post/:slug",

@@ -1,5 +1,7 @@
-export const BASE_URL = 'http://localhost:8080/api/v1';
+export const BASE_URL = 'http://localhost:8080';
+const apiPrefix = '/api/v1';
 
-// User API
-export const CREATE_USER = `${BASE_URL}/users/register`;
-export const LOGIN_USER = `${BASE_URL}/users/login`;
+// User Auth API
+export const CREATE_USER = `${apiPrefix}/users/register`;
+export const LOGIN_USER = `${apiPrefix}/users/login`;
+export const REFRESH_TOKEN = `${apiPrefix}/users/refresh-token`;

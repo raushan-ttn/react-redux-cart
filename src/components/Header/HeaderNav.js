@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useHeaderLink from './HeaderLink';
-import LogoutBtn from '../admin/LogoutBtn';
-import { useSelector } from 'react-redux';
+import { LogoutBtn } from '../admin';
 
 const HeaderNav = () => {
-  const authStatus = useSelector((state) => state.auth.status);
+
   const navItems = useHeaderLink();
   const navigate = useNavigate();
 
@@ -75,7 +74,7 @@ const HeaderNav = () => {
                           {item.name}
                         </button>
                       ) : (
-                        <Link className="nav-link button_a"  to={`${item.slug}`}>
+                        <Link className="nav-link button_a" to={`${item.slug}`}>
                           {`${item.name}`}
                         </Link>
                       )}
@@ -99,11 +98,7 @@ const HeaderNav = () => {
                     </li>
                   ) : null
                 )}
-                {authStatus ? (
-                  <li className='nav-item null'>
-                    <LogoutBtn />{' '}
-                  </li>
-                ) : null}
+                <LogoutBtn />
               </ul>
               {/* <div className="d-none d-lg-block">
                 <a href="/login" className="navbar-icon bi-person smoothscroll"></a>

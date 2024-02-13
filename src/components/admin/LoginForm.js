@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import authUserService from '../../AuthService/UserAuth';
+// import authUserService from '../../services/user.service';
+import { authService } from '../../services';
 import { useDispatch } from 'react-redux';
 import { login } from '../../store/authSlice';
 import { useNavigate } from 'react-router-dom';
@@ -14,13 +15,14 @@ const LoginForm = () => {
     handleSubmit,
   } = useForm();
 
-  const loginUser = async (data) => {
+  const loginUser = (data) => {
     try {
-      const user = await authUserService.login(data);
-      if (user.success) {
-        dispatch(login(user));
-        navigate('/about');
-      }
+      authService.login(data).then((user) => {
+        if (user.success) {
+          dispatch(login(user));
+          navigate('/about');
+        }
+      });
     } catch (error) {
       console.log(error, 'login-form');
     }

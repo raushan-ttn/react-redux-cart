@@ -1,5 +1,5 @@
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 import AuthLayout from './AuthLayout';
-
-export { LoginForm, RegisterForm, AuthLayout };
+import LogoutBtn from './LogoutBtn';
+export { LoginForm, RegisterForm, AuthLayout, LogoutBtn };

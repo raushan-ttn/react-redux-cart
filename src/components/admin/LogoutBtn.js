@@ -1,9 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../store/authSlice';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { tokenService } from '../../services';
 
 const LogoutBtn = () => {
+  const authToken = tokenService.getLocalAccessToken();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -12,7 +14,20 @@ const LogoutBtn = () => {
   };
   return (
     <>
-      <button className='nav-link click-scroll button_a null' onClick={handleLogout}>Logout</button>
+      {authToken ? (
+        <li className="nav-item null">
+          <button
+            className="nav-link click-scroll button_a null"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+        </li>
+      ) : (
+        <Link className="nav-link button_a" to="/login">
+          Login
+        </Link>
+      )}
     </>
   );
 };
