@@ -4,7 +4,6 @@ import useHeaderLink from './HeaderLink';
 import { LogoutBtn } from '../admin';
 
 const HeaderNav = () => {
-
   const navItems = useHeaderLink();
   const navigate = useNavigate();
 
@@ -78,7 +77,6 @@ const HeaderNav = () => {
                           {`${item.name}`}
                         </Link>
                       )}
-
                       {item.children.length > 0 ? (
                         <ul
                           className="dropdown-menu dropdown-menu-light"

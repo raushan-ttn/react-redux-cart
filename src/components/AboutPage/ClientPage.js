@@ -6,7 +6,7 @@ const ClientPage = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12 col-12 text-center">
-            <h3 className="mb-4">Client information</h3>
+            <h3 className="mb-4">Add Client</h3>
           </div>
         </div>
       </div>

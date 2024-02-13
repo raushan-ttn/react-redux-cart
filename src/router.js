@@ -29,13 +29,13 @@ const Router = createBrowserRouter([
       {
         path: '/about',
         element: (
-          <AuthLayout authentication={true}>
+          <AuthLayout authentication={false}>
             <About />
           </AuthLayout>
         ),
       },
       {
-        path: '/about-client',
+        path: '/add-client',
         element: (
           <AuthLayout authentication={true}>
             <Client />
@@ -43,7 +43,7 @@ const Router = createBrowserRouter([
         ),
       },
       {
-        path: '/about-service',
+        path: '/add-service',
         element: (
           <AuthLayout authentication={true}>
             <Service />
@@ -54,7 +54,6 @@ const Router = createBrowserRouter([
         path: '/login',
         element: (
           <AuthLayout authentication={false}>
-            {' '}
             <Login />
           </AuthLayout>
         ),

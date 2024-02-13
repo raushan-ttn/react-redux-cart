@@ -41,28 +41,24 @@ const useHeaderLink = () => {
     {
       name: 'About Us',
       slug: '/about',
-      active: authStatus,
+      active: true,
       scroll: false,
-      children: [
-        {
-          name: 'About Us',
-          slug: '/about',
-          active: authStatus,
-          scroll: false,
-        },
-        {
-          name: 'Clients',
-          slug: '/about-client',
-          scroll: false,
-          active: authStatus,
-        },
-        {
-          name: 'Services',
-          slug: '/about-service',
-          scroll: false,
-          active: authStatus,
-        },
-      ],
+      children: authStatus
+        ? [
+            {
+              name: 'Add Clients',
+              slug: '/add-client',
+              scroll: false,
+              active: authStatus,
+            },
+            {
+              name: 'Add Services',
+              slug: '/add-service',
+              scroll: false,
+              active: authStatus,
+            },
+          ]
+        : [],
     },
   ];
 
