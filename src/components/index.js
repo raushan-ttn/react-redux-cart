@@ -10,14 +10,15 @@ import {
   HowWork,
   GetInTouch,
   FeaturedBlock,
-} from "./HomePage";
-import AboutPage from "./AboutPage/AboutPage";
-import HeaderNav from "./Header/HeaderNav";
-import Footer from "./Footer/Footer";
-import TrandingTopics from "./TrandingTopics";
-import HeaderPage from "./Header/HeaderPage";
-import ClientPage from "./AboutPage/ClientPage";
-import ServicePage from "./AboutPage/ServicePage";
+} from './HomePage';
+import AboutPage from './AboutPage/AboutPage';
+import HeaderNav from './Header/HeaderNav';
+import Footer from './Footer/Footer';
+import TrandingTopics from './TrandingTopics';
+import HeaderPage from './Header/HeaderPage';
+import ClientPage from './AboutPage/ClientPage';
+import ServicePage from './AboutPage/ServicePage';
+import ClientsList from './ClientsList';
 export {
   HeaderNav,
   HeaderPage,
@@ -36,5 +37,6 @@ export {
   Footer,
   TrandingTopics,
   ClientPage,
-  ServicePage
+  ServicePage,
+  ClientsList,
 };

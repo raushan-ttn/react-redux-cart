@@ -1,7 +1,7 @@
 import React from "react";
 import { ClientPage, HeaderPage } from "../../components";
 
-const Client = () => {
+const AddClient = () => {
   return (
     <>
       <HeaderPage />
@@ -10,4 +10,4 @@ const Client = () => {
   );
 };
 
-export default Client;
+export default AddClient;

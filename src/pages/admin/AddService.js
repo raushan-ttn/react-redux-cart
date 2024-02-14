@@ -1,7 +1,7 @@
 import React from "react";
 import { HeaderPage, ServicePage } from "../../components";
 
-const Service = () => {
+const AddService = () => {
   return (
     <>
       <HeaderPage />
@@ -10,4 +10,4 @@ const Service = () => {
   );
 };
 
-export default Service;
+export default AddService;

@@ -2,45 +2,47 @@ import Cookies from 'js-cookie';
 
 export class TokenService {
   getLocalRefreshToken() {
-    const user = JSON.parse(Cookies.get('user'));
-    return user?.refreshToken;
+    if (Cookies.get('refreshToken')) {
+      return Cookies.get('refreshToken');
+    }
   }
 
   getLocalAccessToken() {
-    if (Cookies.get('user')) {
-      const user = JSON.parse(Cookies.get('user'));
-      return user?.accessToken;
+    if (Cookies.get('accessToken')) {
+      return Cookies.get('accessToken');
     }
   }
 
   updateLocalAccessToken(token) {
-    let user = JSON.parse(Cookies.get('user'));
-    user.accessToken = token;
-    Cookies.set('user', JSON.stringify(user), {
-      expires: 7,
-      secure: true,
-      domain: window.location.hostname,
-      path: '/',
-      sameSite: 'strict',
-    });
+    if (token) {
+      Cookies.set('accessToken', token, {
+        expires: 7,
+        domain: window.location.hostname,
+        path: '/',
+      });
+    }
   }
 
   getUser() {
-    return JSON.parse(Cookies.get('user'));
+    return Cookies.get('user') ? JSON.parse(Cookies.get('user')) : {};
   }
 
-  setUser(user) {
-    Cookies.set('user', JSON.stringify(user), {
+  setUser({ refreshToken, accessToken }) {
+    Cookies.set('accessToken', accessToken, {
       expires: 7,
-      secure: true,
       domain: window.location.hostname,
       path: '/',
-      sameSite: 'strict',
+    });
+    Cookies.set('refreshToken', refreshToken, {
+      expires: 7,
+      domain: window.location.hostname,
+      path: '/',
     });
   }
 
   removeUser() {
-    Cookies.remove('user');
+    Cookies.remove('accessToken');
+    Cookies.remove('refreshToken');
   }
 }
 

@@ -1,6 +1,6 @@
 import api from './api';
 import tokenService from './token.service';
-import { CREATE_USER, LOGIN_USER } from '../conf/config';
+import { CREATE_USER, LOGIN_USER, REFRESH_TOKEN } from '../conf/config';
 
 //https://github.com/bezkoder/react-jwt-refresh-token/blob/master/src/services/auth.service.js
 
@@ -17,7 +17,7 @@ class AuthService {
             accessToken: response.data.data.accessToken,
             refreshToken: response.data.data.refreshToken,
           };
-          tokenService.setUser(userData);
+          tokenService.setUser({ ...userData });
         }
 
         return response.data;

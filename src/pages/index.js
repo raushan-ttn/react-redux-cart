@@ -1,8 +1,19 @@
 import About from './About';
-import Client from './admin/Client';
+import AddClient from './admin/AddClient';
 import ErrorPage from './ErrorPage';
 import Home from './Home';
 import Login from './Login';
-import Service from './admin/Service';
+import AddService from './admin/AddService';
 import Register from './Register';
-export { About, Client, ErrorPage, Home, Login, Service, Register };
+import Clients from './admin/Clients';
+
+export {
+  About,
+  AddClient,
+  ErrorPage,
+  Home,
+  Login,
+  AddService,
+  Register,
+  Clients,
+};

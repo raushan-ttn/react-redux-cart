@@ -46,6 +46,12 @@ const useHeaderLink = () => {
       children: authStatus
         ? [
             {
+              name: 'Clients & Services',
+              slug: '/clients',
+              scroll: false,
+              active: authStatus,
+            },
+            {
               name: 'Add Clients',
               slug: '/add-client',
               scroll: false,

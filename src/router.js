@@ -4,8 +4,9 @@ import App from './App';
 import {
   Home,
   About,
-  Client,
-  Service,
+  AddClient,
+  Clients,
+  AddService,
   ErrorPage,
   Login,
   Register,
@@ -35,18 +36,26 @@ const Router = createBrowserRouter([
         ),
       },
       {
+        path: '/clients',
+        element: (
+          <AuthLayout authentication>
+            <Clients />
+          </AuthLayout>
+        ),
+      },
+      {
         path: '/add-client',
         element: (
-          <AuthLayout authentication={true}>
-            <Client />
+          <AuthLayout authentication>
+            <AddClient />
           </AuthLayout>
         ),
       },
       {
         path: '/add-service',
         element: (
-          <AuthLayout authentication={true}>
-            <Service />
+          <AuthLayout authentication>
+            <AddService />
           </AuthLayout>
         ),
       },

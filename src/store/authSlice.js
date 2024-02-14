@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import Cookies from 'js-cookie';
 import { tokenService } from '../services';
 
 const initialState = {
