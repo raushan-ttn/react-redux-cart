@@ -4,10 +4,6 @@ import userService from '../services/user.service';
 
 const ClientsList = () => {
 
-  userService.getUserBoard().then((res) => {
-    console.log(res, 'ddd1');
-  });
-
   return (
     <>
       <section className="section-padding">

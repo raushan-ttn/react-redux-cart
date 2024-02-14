@@ -31,7 +31,7 @@ api.interceptors.response.use(
     if (error.response.status === 401) {
       // logout user incase of accessToken expires.
       // @todo: we will implement refresh Token here.
-      tokenService.removeUser();
+      tokenService.removeLocalAuthTokens();
       //
       window.location.href = `${APP_URL}/login`;
     }
