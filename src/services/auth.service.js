@@ -13,19 +13,27 @@ class AuthService {
       })
       .then((response) => {
         if (response.statusText === 'OK' && response.data.data.accessToken) {
+          // store tokens in cookies.
           let userData = {
             accessToken: response.data.data.accessToken,
             refreshToken: response.data.data.refreshToken,
           };
-          tokenService.setUser({ ...userData });
+          tokenService.setLocalAuthTokens({ ...userData });
         }
-
-        return response.data;
+        // return data to component.
+        let userData = {
+          username: response.data.data.user.username,
+          email: response.data.data.user.email,
+          role: response.data.data.user.role,
+          url: response.data.data.user.avatar.url,
+          success: response.data.success
+        };
+        return userData;
       });
   }
 
   logout() {
-    tokenService.removeUser();
+    tokenService.removeLocalAuthTokens();
   }
 
   signUp({ username, email, password }) {
@@ -34,10 +42,6 @@ class AuthService {
       email,
       password,
     });
-  }
-
-  getCurrentUser() {
-    return tokenService.getUser();
   }
 
   getAuthStatus() {

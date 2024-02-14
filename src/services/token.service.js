@@ -15,32 +15,24 @@ export class TokenService {
 
   updateLocalAccessToken(token) {
     if (token) {
-      Cookies.set('accessToken', token, {
-        expires: 7,
-        domain: window.location.hostname,
-        path: '/',
-      });
+      this.setToken('accessToken',token);
     }
   }
 
-  getUser() {
-    return Cookies.get('user') ? JSON.parse(Cookies.get('user')) : {};
+  setLocalAuthTokens({ refreshToken, accessToken }) {
+    this.setToken('accessToken',accessToken);
+    this.setToken('refreshToken',refreshToken);
   }
 
-  setUser({ refreshToken, accessToken }) {
-    Cookies.set('accessToken', accessToken, {
-      expires: 7,
-      domain: window.location.hostname,
-      path: '/',
-    });
-    Cookies.set('refreshToken', refreshToken, {
+  setToken(name, value) {
+    Cookies.set(name, value, {
       expires: 7,
       domain: window.location.hostname,
       path: '/',
     });
   }
-
-  removeUser() {
+  
+  removeLocalAuthTokens() {
     Cookies.remove('accessToken');
     Cookies.remove('refreshToken');
   }

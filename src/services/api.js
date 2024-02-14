@@ -24,8 +24,8 @@ api.interceptors.request.use(
 );
 
 api.interceptors.response.use(
-  (res) => {
-    return res;
+  (response) => {
+    return response;
   },
   async (error) => {
     if (error.response.status === 401) {
