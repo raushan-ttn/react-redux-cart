@@ -16,9 +16,9 @@ import HeaderNav from './Header/HeaderNav';
 import Footer from './Footer/Footer';
 import TrandingTopics from './TrandingTopics';
 import HeaderPage from './Header/HeaderPage';
-import ClientPage from './AboutPage/ClientPage';
+import AddProduct from './AboutPage/AddProduct';
 import ServicePage from './AboutPage/ServicePage';
-import ClientsList from './ClientsList';
+import ProductsList from './ProductsList';
 export {
   HeaderNav,
   HeaderPage,
@@ -36,7 +36,7 @@ export {
   AboutPage,
   Footer,
   TrandingTopics,
-  ClientPage,
+  AddProduct,
   ServicePage,
-  ClientsList,
+  ProductsList,
 };

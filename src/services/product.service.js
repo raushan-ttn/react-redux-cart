@@ -3,9 +3,10 @@ import { PRODUCT_LIST } from '../conf/config';
 
 export class Product {
 
-  getProduct() {
-    return api.get(PRODUCT_LIST);
+  getProduct({offset, limit}) {
+    return api.get(`${PRODUCT_LIST}?page=${offset}&limit=${limit}`);
   }
+  
 }
 
 const productService = new Product();
