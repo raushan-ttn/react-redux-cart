@@ -2,6 +2,7 @@ import api from './api';
 import { CURRENT_USER } from '../conf/config';
 
 export class UserService {
+  
   getPublicContent() {
     return api.get('/test/all');
   }
@@ -18,14 +19,6 @@ export class UserService {
       };
       return userData;
     });
-  }
-
-  getModeratorBoard() {
-    return api.get('/test/mod');
-  }
-
-  getAdminBoard() {
-    return api.get('/test/admin');
   }
 }
 

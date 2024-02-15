@@ -10,7 +10,7 @@ const ClientsList = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-12 col-12 text-center">
-              <h3 className="mb-4">Clients page</h3>
+              <h3 className="mb-4">Products</h3>
             </div>
           </div>
         </div>

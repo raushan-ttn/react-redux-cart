@@ -7,3 +7,6 @@ export const CREATE_USER = `${apiPrefix}/users/register`;
 export const LOGIN_USER = `${apiPrefix}/users/login`;
 export const REFRESH_TOKEN = `${apiPrefix}/users/refresh-token`;
 export const CURRENT_USER = `${apiPrefix}/users/current-user`;
+
+// Product API
+export const PRODUCT_LIST = `${apiPrefix}/ecommerce/products`;
