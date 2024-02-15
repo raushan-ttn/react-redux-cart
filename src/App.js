@@ -9,18 +9,21 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import userService from './services/user.service';
 import { login } from './store/authSlice';
+import { tokenService } from './services';
 
 function App() {
-  // const userData = useSelector((state) => state.auth.userData);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   // set userData in store.
-  //   if (userData === null) {
-  //     userService.getCurrentUser().then((response) => {
-  //       dispatch(login(response));
-  //     });
-  //   }
-  // });
+  const userData = useSelector((state) => state.auth.userData);
+  const dispatch = useDispatch();
+  const accessToken = tokenService.getLocalAccessToken();
+  
+  useEffect(() => {
+    // set userData in store.
+    if (accessToken && userData === null) {
+      userService.getCurrentUser().then((response) => {
+        dispatch(login(response));
+      });
+    }
+  });
 
   return (
     <>

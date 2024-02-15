@@ -14,7 +14,7 @@ const LogoutBtn = () => {
     navigate('/login');
   };
 
-  const userData = useSelector(state => state.auth.userData);
+  const userData = useSelector((state) => state.auth.userData);
   return (
     <>
       {authToken ? (
@@ -23,7 +23,7 @@ const LogoutBtn = () => {
             className="nav-link click-scroll button_a null"
             style={{ color: 'red' }}
           >
-            Welcome {userData.username.toUpperCase()}
+            Welcome {userData ? userData.username.toUpperCase() : 'aboard !'}
           </button>
           <button
             className="nav-link click-scroll button_a null"

@@ -15,23 +15,24 @@ export class TokenService {
 
   updateLocalAccessToken(token) {
     if (token) {
-      this.setToken('accessToken',token);
+      this.setToken('accessToken', token);
     }
   }
 
   setLocalAuthTokens({ refreshToken, accessToken }) {
-    this.setToken('accessToken',accessToken);
-    this.setToken('refreshToken',refreshToken);
+    this.setToken('accessToken', accessToken);
+    this.setToken('refreshToken', refreshToken);
   }
 
   setToken(name, value) {
     Cookies.set(name, value, {
-      expires: 7,
+      expires: 1,
       domain: window.location.hostname,
       path: '/',
+      sameSite: 'strict'
     });
   }
-  
+
   removeLocalAuthTokens() {
     Cookies.remove('accessToken');
     Cookies.remove('refreshToken');
