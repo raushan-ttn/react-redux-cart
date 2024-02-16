@@ -14,7 +14,7 @@ const Breadcrumb = ({ onReceiveBread }) => {
   const breadcrumbLinks = segments.map((segment, i) => {
     return (
       <li key={i} className="breadcrumb-item">
-        <Link to={`http://localhost:3000/${segment}`}>
+        <Link style={{color:'white'}} to={`http://localhost:3000/${segment}`}>
           {segment === '' ? 'Home' : segment}
         </Link>
       </li>
