@@ -7,6 +7,7 @@ import AddService from './admin/AddService';
 import Register from './Register';
 import AddProductPage from './admin/AddProductPage';
 import Products from './admin/Products';
+import ProductDetail from './admin/ProductDetail';
 export {
   About,
   AddClient,
@@ -17,4 +18,5 @@ export {
   Register,
   AddProductPage,
   Products,
+  ProductDetail,
 };

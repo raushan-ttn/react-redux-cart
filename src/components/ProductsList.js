@@ -16,7 +16,7 @@ const ProductsList = () => {
   // Function to fetch data from API
   const fetchData = ({ pageNum, limit = 9, searchText = '' }) => {
     productService
-      .getProduct({ pageNum, limit, searchText })
+      .getProductList({ pageNum, limit, searchText })
       .then((response) => {
         setProducts(response.data.data.data);
         setTotalPages(response.data.data.totalPages);
@@ -24,7 +24,7 @@ const ProductsList = () => {
         setNextPage(response.data.data.nextPage);
       })
       .catch((error) => {
-        console.log(`Product Fetch Error: ${error}`);
+        console.log(`Product List Fetch Error: ${error}`);
       });
   };
 
@@ -52,7 +52,7 @@ const ProductsList = () => {
               <div className="input-group">
                 <input
                   id="form1"
-                  className="form-control rounded"
+                  className="form-control rounded1"
                   type="search"
                   {...register('keyword')}
                   placeholder="Enter keyword"

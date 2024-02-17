@@ -19,6 +19,8 @@ import HeaderPage from './Header/HeaderPage';
 import AddProduct from './AboutPage/AddProduct';
 import ServicePage from './AboutPage/ServicePage';
 import ProductsList from './ProductsList';
+import ProductPage from './ProductPage';
+import AddtoCart from './AddtoCart';
 export {
   HeaderNav,
   HeaderPage,
@@ -39,4 +41,6 @@ export {
   AddProduct,
   ServicePage,
   ProductsList,
+  ProductPage,
+  AddtoCart,
 };

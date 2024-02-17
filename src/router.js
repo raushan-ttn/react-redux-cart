@@ -6,6 +6,7 @@ import {
   About,
   AddProductPage,
   Products,
+  ProductDetail,
   AddService,
   ErrorPage,
   Login,
@@ -72,6 +73,14 @@ const Router = createBrowserRouter([
         element: (
           <AuthLayout authentication={false}>
             <Register />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: '/products/:id',
+        element: (
+          <AuthLayout authentication={false}>
+            <ProductDetail />
           </AuthLayout>
         ),
       },

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import AddtoCart from './AddtoCart';
 
 const ProductCard = ({ data }) => {
   let amount = data.price % data.discountPercentage;
@@ -44,13 +46,13 @@ const ProductCard = ({ data }) => {
             <p className="text-muted mb-0">
               Available: <span className="fw-bold">{data.stock}</span>
             </p>
-            <div className="ms-auto text-warning">
-              <i className="fa fa-star"></i>
-              <i className="fa fa-star"></i>
-              <i className="fa fa-star"></i>
-              <i className="fa fa-star"></i>
-              <i className="fa fa-star"></i>
-            </div>
+          </div>
+          <div className="d-flex justify-content-between mb-2">
+            <Link to={`/products/${data.id}`} className="btn btn-outline-primary">
+              view details
+            </Link>
+            <br />
+            <AddtoCart data={data} />
           </div>
         </div>
       </div>
