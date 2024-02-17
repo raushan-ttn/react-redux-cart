@@ -3,8 +3,8 @@ import { PRODUCT_LIST } from '../conf/config';
 
 export class Product {
 
-  getProduct({pageNum, limit}) {
-    return api.get(`${PRODUCT_LIST}?page=${pageNum}&limit=${limit}`);
+  getProduct({pageNum, limit, searchText}) {
+    return api.get(`${PRODUCT_LIST}?query=${searchText}&page=${pageNum}&limit=${limit}`);
   }
   
 }

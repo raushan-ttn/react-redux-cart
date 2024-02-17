@@ -19,7 +19,7 @@ const Pagination = ({
           {dataPrev ? (
             <li
               className={`page-item`}
-              onClick={() => setHandlePageChange(dataPrev)}
+              onClick={() => setHandlePageChange(dataPageNum -1)}
             >
               {' '}
               <span className="page-link">Prev</span>
@@ -45,7 +45,7 @@ const Pagination = ({
           {dataNext ? (
             <li
               className={`page-item`}
-              onClick={() => setHandlePageChange(dataNext)}
+              onClick={() => setHandlePageChange(dataPageNum + 1)}
             >
               <span className="page-link">Next</span>
             </li>

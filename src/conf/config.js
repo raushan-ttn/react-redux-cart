@@ -9,4 +9,4 @@ export const REFRESH_TOKEN = `${apiPrefix}/users/refresh-token`;
 export const CURRENT_USER = `${apiPrefix}/users/current-user`;
 
 // Product API
-export const PRODUCT_LIST = `${apiPrefix}/ecommerce/products`;
+export const PRODUCT_LIST = `${apiPrefix}/public/randomproducts`;
