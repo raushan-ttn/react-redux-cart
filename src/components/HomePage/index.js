@@ -12,7 +12,6 @@ import { DiscoverLearn } from "./DiscoverLearn";
 import HowWork from "./HowWork";
 import GetInTouch from "./GetInTouch";
 import FeaturedBlock from "./FeaturedBlock";
-
 export {
   EducationTab,
   FinanceTab,

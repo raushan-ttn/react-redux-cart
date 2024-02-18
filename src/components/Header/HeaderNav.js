@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useHeaderLink from './HeaderLink';
 import { LogoutBtn } from '../admin';
-
+import NavCart from './NavCart';
+import { useSelector } from 'react-redux';
 const HeaderNav = () => {
+  const cartItem = useSelector((state) => state.cart.cartItem);
   const navItems = useHeaderLink();
   const navigate = useNavigate();
 
@@ -96,6 +98,7 @@ const HeaderNav = () => {
                     </li>
                   ) : null
                 )}
+                {cartItem.length > 0 ? <NavCart /> : null}
                 <LogoutBtn />
               </ul>
               {/* <div className="d-none d-lg-block">

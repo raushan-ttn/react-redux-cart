@@ -10,16 +10,14 @@ const ProductPage = () => {
   const paramId = params.id;
   const [index, setIndex] = useState(0);
 
-  const fetchProduct = (id) => {
-    productService
-      .getProduct({ id })
-      .then((response) => {
-        setProduct(response.data.data);
-        setImages(response.data.data.images);
-      })
-      .catch((error) => {
-        console.log(`Product Fetch Error: ${error}`);
-      });
+  const fetchProduct = async (id) => {
+    try {
+      const response = await productService.getProduct({ id });
+      setProduct(response.data.data);
+      setImages(response.data.data.images);
+    } catch (error) {
+      console.log(`Product Fetch Error: ${error}`);
+    }
   };
   // Fetch data on initial render
   useEffect(() => {
@@ -76,12 +74,12 @@ const ProductPage = () => {
                   current price: <span>${product.price}</span>
                 </h4>
                 <p className="vote">
-                  <strong>91%</strong> of buyers enjoyed this product!{' '}
+                  <strong>91%</strong> of buyers enjoyed this product!
                   <strong>(87 votes)</strong>
                 </p>
 
                 <div className="action">
-                  <AddtoCart />
+                  <AddtoCart data={product}  />
                 </div>
               </div>
             </div>

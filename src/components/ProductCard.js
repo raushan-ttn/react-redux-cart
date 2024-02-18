@@ -48,11 +48,14 @@ const ProductCard = ({ data }) => {
             </p>
           </div>
           <div className="d-flex justify-content-between mb-2">
-            <Link to={`/products/${data.id}`} className="btn btn-outline-primary">
+            <Link
+              to={`/products/${data.id}`}
+              className="btn btn-outline-primary"
+            >
               view details
             </Link>
             <br />
-            <AddtoCart data={data} />
+            <AddtoCart data={data}  />
           </div>
         </div>
       </div>
