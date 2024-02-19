@@ -2,14 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeCart } from '../../store/cartSlice';
+import useItemCount from '../../hooks/useItemCount';
+import CountItem from './CountItem';
 const NavCart = () => {
   const addedItems = useSelector((state) => state.cart.cartItem);
+  const addedItem = useItemCount();
+  console.log(addedItem,'add');
   const dispatch = useDispatch();
 
   const removeFromCart = (id) => {
     dispatch(removeCart(id));
   };
-
+  
+const GetItemCount = (id) =>{
+  return useItemCount(id);
+}
   return (
     <ul className="nav navbar-nav navbar-right">
       <li className="dropdown">
@@ -17,7 +24,7 @@ const NavCart = () => {
           <span className="bi bi-cart"></span>
         </button>
         <span className="badge badge-warning" id="lblCartCount">
-          {addedItems.length}
+          {addedItem}
         </span>
         <ul className="dropdown-menu dropdown-cart" role="menu">
           {addedItems.map((item, index) => (
@@ -28,6 +35,7 @@ const NavCart = () => {
                   <span className="item-info">
                     <span>{item.data.title.substr(1, 15)}</span>
                     <span>price:${item.data.price}</span>
+                    <CountItem id={item.id} />
                   </span>
                 </span>
                 <span className="item-right">

@@ -8,6 +8,7 @@ import Register from './Register';
 import AddProductPage from './admin/AddProductPage';
 import Products from './admin/Products';
 import ProductDetail from './admin/ProductDetail';
+import CartPage from './CartPage';
 export {
   About,
   AddClient,
@@ -19,4 +20,5 @@ export {
   AddProductPage,
   Products,
   ProductDetail,
+  CartPage,
 };

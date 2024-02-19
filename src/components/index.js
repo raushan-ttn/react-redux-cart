@@ -21,6 +21,7 @@ import ServicePage from './AboutPage/ServicePage';
 import ProductsList from './ProductsList';
 import ProductPage from './ProductPage';
 import AddtoCart from './AddtoCart';
+import ProductCart from './ProductCart';
 export {
   HeaderNav,
   HeaderPage,
@@ -43,4 +44,5 @@ export {
   ProductsList,
   ProductPage,
   AddtoCart,
+  ProductCart,
 };

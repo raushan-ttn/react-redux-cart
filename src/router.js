@@ -11,6 +11,7 @@ import {
   ErrorPage,
   Login,
   Register,
+  CartPage,
 } from './pages';
 import { AuthLayout } from './components/admin';
 
@@ -79,8 +80,16 @@ const Router = createBrowserRouter([
       {
         path: '/products/:id',
         element: (
-          <AuthLayout authentication={false}>
+          <AuthLayout authentication>
             <ProductDetail />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: '/cart',
+        element: (
+          <AuthLayout authentication>
+            <CartPage />
           </AuthLayout>
         ),
       },
