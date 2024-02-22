@@ -1,9 +1,23 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import CountItem from './Header/CountItem';
+import ItemCounter from './ItemCounter';
+import RemoveItem from './RemoveItem';
+import { sortCart } from '../store/cartSlice';
 const ProductCart = () => {
+  const [check, setCheck] = useState(false);
   const product = useSelector((state) => state.cart.cartItem);
-  console.log(product, 'product');
+  const dispatch = useDispatch();
+
+  const sortByPrice = () => {
+    setCheck((prev) => !prev);
+    dispatch(sortCart(check));
+  };
+  
+  useEffect(() => {
+    console.log(product,'product');
+  },[product]);
+
   return (
     <>
       <section className="h-100 gradient-custom">
@@ -12,147 +26,44 @@ const ProductCart = () => {
             <div className="col-md-8">
               <div className="card mb-4">
                 <div className="card-header py-3">
-                  <h5 className="mb-0">Cart - 2 items</h5>
+                  <CountItem type="cart" />
+                </div>
+                <div className="card-header py-3">
+                  <button onClick={sortByPrice}>Sort by count</button>
                 </div>
                 <div className="card-body">
-                  <div className="row">
-                    <div className="col-lg-3 col-md-12 mb-4 mb-lg-0">
-                      <div
-                        className="bg-image hover-overlay hover-zoom ripple rounded"
-                        data-mdb-ripple-color="light"
-                      >
-                        <img
-                          src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
-                          className="w-100"
-                          alt="Blue Jeans Jacket"
-                        />
-                        <a href="#">
-                          <div
-                            className="mask"
-                            style={{
-                              backgroundColor: `rgba(251, 251, 251, 0.2)`,
-                            }}
-                          ></div>
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-5 col-md-6 mb-4 mb-lg-0">
-                      <p>
-                        <strong>Blue denim shirt</strong>
-                      </p>
-                      <p>Color: blue</p>
-                      <p>Size: M</p>
-                      <button
-                        type="button"
-                        className="btn btn-primary btn-sm me-1 mb-2"
-                        data-mdb-toggle="tooltip"
-                        title="Remove item"
-                      >
-                        Remove
-                      </button>
-                    </div>
-
-                    <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                      <div
-                        className="d-flex mb-4"
-                        style={{ maxWidth: '300px' }}
-                      >
-                        <button className="btn btn-primary px-3 me-2">-</button>
-
-                        <div className="form-outline">
-                          <input
-                            id="form1"
-                            min="0"
-                            name="quantity"
-                            // value="1"
-                            type="number"
-                            className="form-control"
+                  {product.map((item, index) => (
+                    <div key={index} className="row">
+                      <div className="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                        <div
+                          className="bg-image hover-overlay hover-zoom ripple rounded"
+                          data-mdb-ripple-color="light"
+                        >
+                          <img
+                            src={item.data.img}
+                            className="w-100"
+                            alt={item.data.title}
                           />
-                          <label className="form-label" htmlFor="form1">
-                            Quantity
-                          </label>
                         </div>
-
-                        <button className="btn btn-primary px-3 ms-2">+</button>
+                      </div>
+                      <div className="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                        <p>
+                          <strong>{item.data.title}</strong>
+                        </p>
+                        <p>Color: blue</p>
+                        <p>Size: M</p>
+                        <RemoveItem data={item} />
                       </div>
 
-                      <p className="text-start text-md-center">
-                        <strong>$17.99</strong>
-                      </p>
-                    </div>
-                  </div>
-
-                  <hr className="my-4" />
-
-                  <div className="row">
-                    <div className="col-lg-3 col-md-12 mb-4 mb-lg-0">
-                      <div
-                        className="bg-image hover-overlay hover-zoom ripple rounded"
-                        data-mdb-ripple-color="light"
-                      >
-                        <img
-                          src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/13a.webp"
-                          className="w-100"
-                          alt=""
-                        />
-                        <a href="#!">
-                          <div
-                            className="mask"
-                            style={{
-                              backgroundColor: 'rgba(251, 251, 251, 0.2)',
-                            }}
-                          ></div>
-                        </a>
+                      <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                        <ItemCounter data={item} />
+                        <p className="text-start text-md-center">
+                          <strong>${item.data.price}</strong>
+                        </p>
                       </div>
+                      <hr className="my-4" />
                     </div>
-
-                    <div className="col-lg-5 col-md-6 mb-4 mb-lg-0">
-                      <p>
-                        <strong>Red hoodie</strong>
-                      </p>
-                      <p>Color: red</p>
-                      <p>Size: M</p>
-
-                      <button
-                        type="button"
-                        className="btn btn-primary btn-sm me-1 mb-2"
-                        data-mdb-toggle="tooltip"
-                        title="Remove item"
-                      >
-                        Remove
-                      </button>
-                    </div>
-
-                    <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                      <div
-                        className="d-flex mb-4"
-                        style={{ maxWidth: '300px' }}
-                      >
-                        <button className="btn btn-primary px-3 ">-</button>
-
-                        <div className="form-outline">
-                          <input
-                            id="form1"
-                            min="0"
-                            name="quantity"
-                            // value="1"
-                            type="number"
-                            className="form-control"
-                          />
-                          <label className="form-label" htmlFor="form1">
-                            Quantity
-                          </label>
-                        </div>
-
-                        <button className="btn btn-primary px-3 ms-2">+</button>
-                      </div>
-
-                      <p className="text-start text-md-center">
-                        <strong>$17.99</strong>
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
               <div className="card mb-4">

@@ -7,16 +7,12 @@ import CountItem from './CountItem';
 const NavCart = () => {
   const addedItems = useSelector((state) => state.cart.cartItem);
   const addedItem = useItemCount();
-  console.log(addedItem,'add');
   const dispatch = useDispatch();
 
   const removeFromCart = (id) => {
     dispatch(removeCart(id));
   };
   
-const GetItemCount = (id) =>{
-  return useItemCount(id);
-}
   return (
     <ul className="nav navbar-nav navbar-right">
       <li className="dropdown">
