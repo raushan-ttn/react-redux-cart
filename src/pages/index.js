@@ -6,7 +6,7 @@ import Login from './Login';
 import AddService from './admin/AddService';
 import Register from './Register';
 import AddProductPage from './admin/AddProductPage';
-import Products from './admin/Products';
+import Products from './Layout/ProductLayout';
 import ProductDetail from './admin/ProductDetail';
 import CartPage from './CartPage';
 export {

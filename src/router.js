@@ -1,12 +1,14 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import App from './App';
+import AppleProducts, {
+  loader as AppleLoader,
+} from './pages/admin/AppleProducts';
+import ProductLayout from './pages/Layout/ProductLayout';
 import {
   Home,
   About,
   AddProductPage,
-  Products,
-  ProductDetail,
   AddService,
   ErrorPage,
   Login,
@@ -14,6 +16,7 @@ import {
   CartPage,
 } from './pages';
 import { AuthLayout } from './components/admin';
+import { ProductsList, ProductPage } from './components';
 
 const Router = createBrowserRouter([
   {
@@ -22,7 +25,8 @@ const Router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '/',
+        // path: '',
+        index: true, // we can use index: true in case of blank path.
         element: (
           <AuthLayout authentication={false}>
             <Home />
@@ -30,7 +34,7 @@ const Router = createBrowserRouter([
         ),
       },
       {
-        path: '/about',
+        path: 'about',
         element: (
           <AuthLayout authentication={false}>
             <About />
@@ -38,23 +42,50 @@ const Router = createBrowserRouter([
         ),
       },
       {
-        path: '/products',
+        path: 'products',
         element: (
           <AuthLayout authentication>
-            <Products />
+            <ProductLayout />
           </AuthLayout>
         ),
+        children: [
+          {
+            index: true,
+            element: (
+              <AuthLayout authentication>
+                <ProductsList />
+              </AuthLayout>
+            ),
+          },
+          {
+            path: ':id',
+            element: (
+              <AuthLayout authentication>
+                <ProductPage />
+              </AuthLayout>
+            ),
+          },
+          {
+            path: 'apple-products',
+            element: (
+              <AuthLayout authentication>
+                <AppleProducts />
+              </AuthLayout>
+            ),
+            loader: AppleLoader,
+          },
+          {
+            path: 'add',
+            element: (
+              <AuthLayout authentication>
+                <AddProductPage />
+              </AuthLayout>
+            ),
+          },
+        ],
       },
       {
-        path: '/add-product',
-        element: (
-          <AuthLayout authentication>
-            <AddProductPage />
-          </AuthLayout>
-        ),
-      },
-      {
-        path: '/add-service',
+        path: 'add-service',
         element: (
           <AuthLayout authentication>
             <AddService />
@@ -62,7 +93,7 @@ const Router = createBrowserRouter([
         ),
       },
       {
-        path: '/login',
+        path: 'login',
         element: (
           <AuthLayout authentication={false}>
             <Login />
@@ -70,7 +101,7 @@ const Router = createBrowserRouter([
         ),
       },
       {
-        path: '/register',
+        path: 'register',
         element: (
           <AuthLayout authentication={false}>
             <Register />
@@ -78,25 +109,13 @@ const Router = createBrowserRouter([
         ),
       },
       {
-        path: '/products/:id',
-        element: (
-          <AuthLayout authentication>
-            <ProductDetail />
-          </AuthLayout>
-        ),
-      },
-      {
-        path: '/cart',
+        path: 'cart',
         element: (
           <AuthLayout authentication>
             <CartPage />
           </AuthLayout>
         ),
       },
-      // {
-      //     path: "/post/:slug",
-      //     element: <Post />,
-      // },
     ],
   },
 ]);

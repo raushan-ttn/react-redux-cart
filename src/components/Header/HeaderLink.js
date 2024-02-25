@@ -52,8 +52,14 @@ const useHeaderLink = () => {
               active: authStatus,
             },
             {
+              name: 'Apple Product',
+              slug: '/products/apple-products',
+              scroll: false,
+              active: authStatus,
+            },
+            {
               name: 'Add Product',
-              slug: '/add-product',
+              slug: '/products/add',
               scroll: false,
               active: authStatus,
             },

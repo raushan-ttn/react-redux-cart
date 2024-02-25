@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import staticImages from '../conf/ImageConstant';
 import '../assets/css/vendor/core.css';
 import '../assets/css/vendor/theme-default.css';
@@ -10,9 +11,9 @@ const ErrorPage = () => {
         <p className="mb-4 mx-2">
           Oops! 😖 The requested URL was not found on this server.
         </p>
-        <a href="/" className="btn btn-primary">
+        <Link to=".." className="btn btn-primary">
           Back to home
-        </a>
+        </Link>
         <div className="mt-3">
           <img
             src={staticImages.E404}

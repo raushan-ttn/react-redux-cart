@@ -32,7 +32,6 @@ const ProductCard = ({ data }) => {
               </a>
             </p>
             <p className="small text-danger">
-              {}
               <s>${Math.round(totalAmount)}</s>
             </p>
           </div>
@@ -55,7 +54,7 @@ const ProductCard = ({ data }) => {
               view details
             </Link>
             <br />
-            <AddtoCart data={data}  />
+            <AddtoCart data={data} />
           </div>
         </div>
       </div>

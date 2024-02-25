@@ -10,12 +10,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import userService from './services/user.service';
 import { login } from './store/authSlice';
 import { tokenService } from './services';
-
 function App() {
   const userData = useSelector((state) => state.auth.userData);
   const dispatch = useDispatch();
   const accessToken = tokenService.getLocalAccessToken();
-  
+
   useEffect(() => {
     // set userData in store.
     if (accessToken && userData === null) {
